@@ -9,10 +9,10 @@ module.exports = {
   plugins: [
     `gatsby-transformer-remark`,
     {
-      resovle: `gatsby-source-filesystem`,
-      option: {
+      resolve: `gatsby-source-filesystem`,
+      options: {
         name: `pages`,
-        path: `${__dirname}/src/pages`
+        path: `${__dirname}/src/pages/`,
       }
     }
   ],
