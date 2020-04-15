@@ -1,34 +1,26 @@
 import React from 'react'
-import { graphql, Link } from 'gatsby'
+import { Link } from 'gatsby'
 
-const SingleTagTemplate = ({ data }) => {
-    //const { edges } = data.allMarkdownRemark
+const SingleTagTemplate = ({ data, pageContext }) => {
+    const {posts, tagName} = pageContext
     return (
-        <div>
+        <div style={{ fontFamily: 'avenir' }}>
             <div>
-            TAG HERE
+                Posts about {tagName}
+            </div>
+            <div>
+                <ul>
+                    {posts.map((post, index) => {
+                        return (
+                            <li key={index}>
+                                <Link to={post.frontmatter.path}>{post.frontmatter.title}</Link>
+                            </li>
+                        )
+                    })}
+                </ul>
             </div>
         </div>
     )
 }
-
-// export const query = graphql`
-//     query HomepageQuery {
-//         allMarkdownRemark(
-//             sort: {order: DESC, fields: frontmatter___date}
-//         ) {
-//             edges {
-//                 node {
-//                     frontmatter {
-//                         title
-//                         path
-//                         date
-//                         excerpt
-//                     }
-//                 }
-//             }
-//         }
-//     }
-// `
 
 export default SingleTagTemplate

@@ -1,35 +1,25 @@
 import React from 'react'
-import { graphql, Link } from 'gatsby'
+import { Link } from 'gatsby'
 
 const AllTagsTemplate = ({ data, pageContext }) => {
-    console.log(pageContext)
-    //const { edges } = data.allMarkdownRemark
+    const { tags } = pageContext
     return (
-        <div>
+        <div style={{ fontFamily: 'avenir' }}>
             <div>
-            TAGS HERE
+                <ul>
+                    {tags.map((tagName, index) => {
+                        return(
+                            <li key={index}>
+                                <Link to={`/tags/${tagName}`}>
+                                    {tagName}
+                                </Link>
+                            </li>
+                        )
+                    })}
+                </ul>
             </div>
         </div>
     )
 }
-
-// export const query = graphql`
-//     query HomepageQuery {
-//         allMarkdownRemark(
-//             sort: {order: DESC, fields: frontmatter___date}
-//         ) {
-//             edges {
-//                 node {
-//                     frontmatter {
-//                         title
-//                         path
-//                         date
-//                         excerpt
-//                     }
-//                 }
-//             }
-//         }
-//     }
-// `
 
 export default AllTagsTemplate
