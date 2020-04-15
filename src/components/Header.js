@@ -1,5 +1,5 @@
 import React from 'react'
-import { StaticQuery, graphql } from 'gatsby'
+import { graphql, useStaticQuery } from 'gatsby'
 
 const TitleAndDescription = ({data}) => {
     const title = data.site.siteMetadata.title
@@ -23,20 +23,20 @@ const TitleAndDescription = ({data}) => {
 }
 
 const Header = () => {
-    return (
-        <StaticQuery
-            query={graphql`
-                query {
-                    site {
-                        siteMetadata {
-                            title
-                            description
-                        }
+    const data = useStaticQuery(
+        graphql`
+            query {
+                site {
+                    siteMetadata {
+                        title
+                        description
                     }
                 }
-            `}
-            render={data => <TitleAndDescription data={data} />}
-        />
+            }
+        `
+    )
+    return (
+      <TitleAndDescription data={data} />
     )
 }
 
