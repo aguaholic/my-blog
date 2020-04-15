@@ -1,8 +1,8 @@
 ---
 path: "/second-post"
-date: "2020-07-21"
+date: "2020-07-22"
 title: "My second post"
-tags: ["this", "that"]
+tags: ["this"]
 excerpt: "A preview of my second post"
 ---
 

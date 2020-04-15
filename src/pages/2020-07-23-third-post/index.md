@@ -2,7 +2,7 @@
 path: "/third-post"
 date: "2020-07-23"
 title: "My third post"
-tags: ["this", "that"]
+tags: ["other"]
 excerpt: "A preview of my third post"
 ---
 
